@@ -3,6 +3,7 @@ import { auth } from '../firebase';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { ref, set } from 'firebase/database';  // 追加
 import { database } from '../firebase';  // 追加
+import './Login.css';
 
 function Login() {
   const [email, setEmail] = useState('');

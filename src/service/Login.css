@@ -4,6 +4,7 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
   }
   
   .login-container form {
@@ -20,9 +21,10 @@
   
   .login-container button {
     padding: 10px;
-    background: #4361ee;
+    background: black;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin: 0 auto;
   }
