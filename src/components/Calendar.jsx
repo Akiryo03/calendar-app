@@ -143,9 +143,9 @@ function CalendarComponent(){
         </div>
        )}
     <div> 
-    <button onClick={handleLogout} className="button">ログアウト</button>  
+    <button onClick={handleLogout} className="button">Logout</button>  
     <button className='button'
-     onClick={exportEvents}>カレンダーをエクスポート</button>
+     onClick={exportEvents}>export</button>
     <input 
         type="file" 
         accept=".json" 
@@ -159,7 +159,7 @@ function CalendarComponent(){
         />
         <div>
         <h2>
-            イベントを追加
+            Add Events
         </h2>
         </div>
         <div>
@@ -182,10 +182,10 @@ function CalendarComponent(){
             <option value="安田">安田</option>
         </select>
             <button onClick={handleAddEvent} className='button'>
-                追加</button> 
+                Add</button> 
         </div>
         <div>
-    <h2>{date.toLocaleDateString()}のイベント</h2>
+    <h2>Events at {date.toLocaleDateString()}</h2>
     <ul>
     {getEventsForDate(date).map((event) => (
         <li key={event.id} className="event-item">
@@ -218,7 +218,7 @@ function CalendarComponent(){
                 }}
                 className="button"
             >
-                削除
+                Delete
             </button>
         </li>
         
