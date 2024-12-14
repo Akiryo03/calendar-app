@@ -86,29 +86,6 @@ function CalendarComponent(){
         });
     };
 
-    const exportEvents = () => {
-        const dataStr = JSON.stringify(events);
-        const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
-        
-        const exportFileDefaultName = 'calendar-events.json';
-        
-        const linkElement = document.createElement('a');
-        linkElement.setAttribute('href', dataUri);
-        linkElement.setAttribute('download', exportFileDefaultName);
-        linkElement.click();
-    };
-
-    const importEvents = (event) => {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        
-        reader.onload = (e) => {
-            const importedEvents = JSON.parse(e.target.result);
-            setEvents([...events, ...importedEvents]);  // 既存のイベントに追加
-        };
-        
-        reader.readAsText(file);
-    };
 
     const changeIsCompleted = (id) =>   {
         const newEvents =[...events];
@@ -145,14 +122,6 @@ function CalendarComponent(){
        )}
     <div> 
     <button onClick={handleLogout} className="button">Logout</button>  
-    <button className='button'
-     onClick={exportEvents}>export</button>
-    <input 
-        type="file" 
-        accept=".json" 
-        onChange={importEvents}
-        style={{ margin: '0 10px' }}
-        />
         </div>
         <Calendar
         value={date}
@@ -209,7 +178,7 @@ function CalendarComponent(){
                     textDecoration: event.isCompleted ? 'line-through' : 'none'
                 }}>
                     {event.title}
-                    {event.assignee} && <span className="assignee-tag">担当:</span>
+                    {event.assignee}  <span className="assignee-tag">担当:</span>
                 </span>
             </div>
             <button 

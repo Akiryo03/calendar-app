@@ -15,7 +15,7 @@ function PulldownMenu({ onSelect }) {
             onChange={(e) => onSelect(e.target.value)}
             className="event-select"
         >
-            <option value="">予定を選択</option>
+            <option value="">タスクを選択</option>
             {eventOptions.map((option, index) => (
                 <option key={index} value={option}>
                     {option}
