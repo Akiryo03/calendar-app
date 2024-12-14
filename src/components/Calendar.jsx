@@ -61,7 +61,7 @@ function CalendarComponent(){
     
         const newEvent = {
           id: Date.now(),
-          date: date,
+          date: date.toISOString(),
           title: eventTitle,
           assignee: assignee,
           isCompleted: false,
@@ -79,12 +79,13 @@ function CalendarComponent(){
         setAssignee('');
       };
 
-
-    const getEventsForDate = (selectedDate) => {
-        return events.filter(event => 
-            event.date.toDateString() === selectedDate.toDateString()
-        );
+      const getEventsForDate = (selectedDate) => {
+        return events.filter(event => {
+            const eventDate = new Date(event.date);
+            return eventDate.toDateString() === selectedDate.toDateString();
+        });
     };
+
     const exportEvents = () => {
         const dataStr = JSON.stringify(events);
         const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
